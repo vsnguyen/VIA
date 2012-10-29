@@ -1,8 +1,13 @@
-	<ul class="nav nav-list bs-docs-sidenav affix-top">
-		<li class="active"><a href="#">Admin Dashboard</a></li>
+	<ul class="nav nav-admin nav-tabs mt30 mb20">
+		<li><%= link_to "Admin Home", admin_path %></li>
+		<li><%= link_to "Post", admin_posts_path %></li>		
 		<li><%= link_to "Comment", admin_comments_path %></li>
-		<li><%= link_to "Post", admin_posts_path %></li>
 		<li><%= link_to "Category", admin_categories_path %></li>
 		<li><%= link_to "User", admin_users_path %></li>
 		<li><%= link_to "Settings", root_path %></li>
+		<li class="pull-right">
+			<form class="form-search nm">
+			  <input type="text" class="input-small search-query" placeholder="Search">
+			</form>	
+		</li>
 	</ul>	
