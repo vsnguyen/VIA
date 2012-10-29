@@ -1,9 +1,16 @@
 <%= form_for ([:admin, @category]) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title, :class => "" %>
-
-  <%= f.label :description %>
-  <%= f.text_area :description %><br />
-
-  <%= f.submit :class => "btn btn-primary" %>
+<table class="table table-hover">
+	<tr>
+		<td width="15%"><%= f.label :title %></td>
+		<td><%= f.text_field :title, :class => "" %></td>
+	</tr>
+	<tr>
+		<td class="nb"><%= f.label :description %></td>
+		<td class="nb"><%= f.text_area :description, rows: 5, :class => "span10" %></td>		
+	</tr>
+	<tr>
+		<td class="nb"></td>
+		<td class="nb"><%= f.submit :class => "btn btn-primary" %></td>		
+	</tr>
+</table>
 <% end %>

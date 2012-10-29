@@ -1,11 +1,11 @@
 class Admin::CategoriesController < Admin::ApplicationController
+  before_filter :cat_id, :only => [:show, :edit, :update, :destroy]
 
   def index
     @categories = Category.all
   end
   
   def show
-    @category = Category.find(params[:id])
     @post = @category.posts
   end
   
@@ -27,11 +27,9 @@ class Admin::CategoriesController < Admin::ApplicationController
   end
   
   def edit
-    @category = Category.find(params[:id])
   end
   
   def update
-    @category = Category.find(params[:id])
     respond_to do |format|
       if @category.update_attributes(params[:category])
         flash[:success] = "Category updated!"
@@ -43,11 +41,14 @@ class Admin::CategoriesController < Admin::ApplicationController
   end
   
   def destroy
-    @category = Category.find(params[:id])
     @category.destroy
     respond_to do |format|
       format.html { redirect_to admin_categories_path }
     end
+  end
+  
+  def cat_id 
+    @category = Category.find(params[:id])
   end
   
 end
