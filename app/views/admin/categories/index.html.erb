@@ -1,0 +1,6 @@
+<h1>Categories</h1>
+<ul>
+	<%- for cat in @categories %>
+	<li><%= link_to cat.title, admin_category_path(cat)  %></li>
+	<% end%>
+</ul>

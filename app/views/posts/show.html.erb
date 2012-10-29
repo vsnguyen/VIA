@@ -1,0 +1,9 @@
+Category Show
+<<% for category in @categories %>
+  <strong><%= category.name %></strong>
+  <ul>
+    <% for post in category.posts %>
+      <li><%= post.name %></li>
+    <% end %>
+  </ul>
+<% end %>

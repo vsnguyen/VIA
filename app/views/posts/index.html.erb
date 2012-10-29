@@ -1,0 +1,9 @@
+<% @posts.each do |post| %>
+<div class="post">
+	<h2><%= link_to post.title, post_path(post) %></h2>
+	<div class="post-body"><%= post.body %></div>
+	<div class="post-meta">
+		<p>Posted on <%= link_to post.created_at %><p>
+	</div>
+</div>
+<% end %>
