@@ -1,0 +1,25 @@
+<%= render "admin/application/admin-links" %>
+<div class="row-fluid">
+	<div class="span3">
+		<h4><%= @post.title %></h4>
+		<p><%= @post.description %></p>
+	</div>
+	<div class="span9">
+		<h4>"<%= @category.title %>" Posts</h4>
+		<table class="table table-striped">
+			<tbody>
+				<% if @posts %>
+					<% for post in @posts %>
+					<tr>
+						<td><% link_to post.title, edit_admin_post_path(post) %></td>
+					</tr>
+					<% end %>
+				<% else %>
+					<tr>
+						<td>I'm empty! Post something...</td>
+					</tr>
+				<% end%>
+			</tbody>
+		</table>
+	</div>
+</div>
