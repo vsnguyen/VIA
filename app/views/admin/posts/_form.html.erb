@@ -1,12 +1,12 @@
-<%= form_for ([:admin, @category]) do |f| %>
+<%= form_for ([:admin, @post]) do |f| %>
 <table class="table table-hover">
 	<tr>
 		<td width="15%"><%= f.label :title %></td>
 		<td><%= f.text_field :title, :class => "" %></td>
 	</tr>
 	<tr>
-		<td class="nb"><%= f.label :description %></td>
-		<td class="nb"><%= f.text_area :description, rows: 5, :class => "span10" %></td>		
+		<td class="nb"><%= f.label :body %></td>
+		<td class="nb"><%= f.text_area :body, rows: 5, :class => "span10" %></td>		
 	</tr>
 	<tr>
 		<td class="nb"></td>

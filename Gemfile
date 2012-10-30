@@ -11,6 +11,7 @@ gem 'mysql'
 # Template
 gem "twitter-bootstrap-rails", "~> 2.1.4"
 gem "haml", "~> 3.1.7"
+gem "active_link_to"
 
 # Authenication and Authorization
 gem "devise", "~> 2.1.2" # authentication

@@ -1,9 +1,4 @@
-@media (min-width: 1200px) {
-	/* body ==================*/
-	body {margin-top: 41px;}
-
-	.hero {margin-bottom: 30px;}
-}
+body {margin-top: 41px;}
 
 body > .navbar .brand {
 	font-weight: 400;
@@ -14,6 +9,29 @@ body > .navbar a {
    -moz-transition: all .2s linear;
     	transition: all .2s linear;
 }
+
+/* Defined =================== */
+.nm {margin: 0 !important;}
+.np {padding: 0 !important;}
+.nb {border: 0 !important;}
+
+.m30 {margin: 30px}
+.mt30 {margin-top: 30px}
+.mb30 {margin-bottom: 30px}
+.mr30 {margin-right: 30px}
+.mr30 {margin-left: 30px}
+
+.m20 {margin: 20px}
+.mt20 {margin-top: 20px}
+.mb20 {margin-bottom: 20px}
+.mr20 {margin-right: 20px}
+.mr20 {margin-left: 20px}
+
+.p30 {padding: 30px}
+.pt30 {padding-top: 30px}
+.pb30 {padding-bottom: 30px}
+.pr30 {padding-right: 30px}
+.pl30 {padding-left: 30px}
 
 .bs-docs-sidenav {
 
@@ -111,3 +129,16 @@ hr.soften {
 .footer {}
 .footer .pull-right {text-align: right;}
 .footer .pull-right acronym {border-bottom: 1px dotted #ccc;}
+
+/* RESPONSIVE ===================== */
+
+/* Max: 1200 */
+@media (min-width: 1200px) {
+	.hero {margin-bottom: 30px;}
+}
+
+@media (max-width: 979px){
+	body {margin: 0 !important;}
+	.navbar-fixed-top {margin-bottom: 0 !important;}
+}
+
