@@ -1,5 +1,6 @@
 class Admin::PostsController < Admin::ApplicationController
-  before_filter :post_id, :only => [:show, :edit, :update, :destroy]
+  before_filter :post_params_id, :only => [:show, :edit, :update, :destroy]
+  #before_filter :attach_user, :only => [:create, :edit, :update]
 
   def index
     @posts = Post.all
@@ -14,6 +15,7 @@ class Admin::PostsController < Admin::ApplicationController
   
   def create
     @post = Post.new(params[:post])
+    @post.user = current_user #attach user id to user_id column.
     respond_to do |format|
       if @post.save
         flash[:success] = "Category Created!"
@@ -46,8 +48,11 @@ class Admin::PostsController < Admin::ApplicationController
     end
   end
   
-  def post_id 
-    @post = Post.find(params[:id])
+  def post_category
+    
   end
   
+  def post_params_id 
+    @post = Post.find(params[:id])
+  end  
 end

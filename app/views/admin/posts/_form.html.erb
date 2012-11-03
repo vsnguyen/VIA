@@ -1,16 +1,54 @@
 <%= form_for ([:admin, @post]) do |f| %>
-<table class="table table-hover">
-	<tr>
-		<td width="15%"><%= f.label :title %></td>
-		<td><%= f.text_field :title, :class => "" %></td>
-	</tr>
-	<tr>
-		<td class="nb"><%= f.label :body %></td>
-		<td class="nb"><%= f.text_area :body, rows: 5, :class => "span10" %></td>		
-	</tr>
-	<tr>
-		<td class="nb"></td>
-		<td class="nb"><%= f.submit :class => "btn btn-primary" %></td>		
-	</tr>
-</table>
+<div class="row-fluid">
+	<div class="span9">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<% if current_page?(:action=>"new", :controller=>"admin/posts")%>
+					<th colspan="2"><p class="lead nm">Add New Post</p></th>
+					<% elsif current_page?(:action=>"edit", :controller=>"admin/posts") %>
+					<th colspan="2"><p class="lead nm">Edit Post</p></th>
+					<% end %>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td width="15%"><%= f.label :title %></td>
+					<td><%= f.text_field :title, :class => "" %></td>
+				</tr>
+				<tr>
+					<td class="nb"><%= f.label :body %></td>
+					<td class="nb"><%= f.text_area :body, rows: 5, :class => "span10" %></td>		
+				</tr>
+				<tr>
+					<td class="nb"></td>
+					<td class="nb"><%= f.submit :class => "btn btn-primary" %></td>		
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="span3">
+		<table class="table">
+			<thead>
+				<tr>
+					<th><p class="lead nm">Categories</p></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<!-- f.collection_select :category.ids, Category.all, :id, :title, {:selected => @post.category.ids, :include_blank => true}, {:multiple => true} -->
+
+						<ul>
+						<% for category in Category.find(:all) %>
+							<li><%= check_box_tag "post[category_ids][]", category.id, @post.categories.include?(category) %>
+							<%= category.title %></li>
+						<% end %>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
 <% end %>

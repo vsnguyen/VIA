@@ -1,11 +1,7 @@
 class Post < ActiveRecord::Base
-  belongs_to :category
+  has_many :post_categories
+  has_many :categories, :through => :post_categories, :dependent => :destroy
   belongs_to :user
   
-  has_many :comments, :through => :user
-  
-  attr_accessible :body, :title, :user_id
-  
-  def author
-  end
+  attr_accessible :body, :title, :user_id, :category_ids
 end

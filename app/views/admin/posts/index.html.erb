@@ -2,13 +2,16 @@
 <table class="table table-striped" width="100%">
 	<thead>
 		<tr>
-			<th colspan="2"><%= link_to "+", new_admin_post_path, :class => "btn btn-mini btn-primary" %> Posts (<%= @posts.count %>)</th>
+			<th colspan="2"><p class="lead nm"><%= link_to "+", new_admin_post_path, :class => "btn btn-mini btn-primary" %> Posts (<%= @posts.count %>)</p></th>
 		</tr>
 	</thead>
 	<tbody>
 		<% for post in @posts %>
 			<tr>
-				<td width="80%"><%= post.id %> . <%= link_to post.title, post_path(post)  %> <% if post.body %><small>&mdash; <%= post.body %></small><% end %></td>
+				<td width="80%">
+					<%= post.id %> . <%= link_to post.title, post_path(post)  %> <% if post.body %><small>&mdash; <%= post.body %></small><% end %>
+					<%= post.category_id %>
+				</td>
 				<td width="5%"><div class="btn-group"><%= link_to "E", edit_admin_post_path(post), :class => "btn btn-mini btn-info"  %> <%= link_to "D", admin_post_path(post), :method => :delete, :class => "btn btn-mini btn-danger"  %></div></td>			
 			<tr>
 		<% end %>

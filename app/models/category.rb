@@ -1,7 +1,6 @@
 class Category < ActiveRecord::Base
-  # relation
-  has_many :posts
+  has_many :post_categories
+  has_many :posts, :through => :post_categories, :dependent => :destroy
   
-  #access attr
   attr_accessible :description, :title
 end

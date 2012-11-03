@@ -1,16 +1,27 @@
 <%= form_for ([:admin, @category]) do |f| %>
 <table class="table table-hover">
-	<tr>
-		<td width="15%"><%= f.label :title %></td>
-		<td><%= f.text_field :title, :class => "" %></td>
-	</tr>
-	<tr>
-		<td class="nb"><%= f.label :description %></td>
-		<td class="nb"><%= f.text_area :description, rows: 5, :class => "span10" %></td>		
-	</tr>
-	<tr>
-		<td class="nb"></td>
-		<td class="nb"><%= f.submit :class => "btn btn-primary" %></td>		
-	</tr>
+	<thead>
+		<tr>
+			<% if current_page?(:action=>"new", :controller=>"admin/categories")%>
+			<th colspan="2"><p class="lead nm">Add New Category</p></th>
+			<% elsif current_page?(:action=>"edit", :controller=>"admin/categories") %>
+			<th colspan="2"><p class="lead nm">Edit Category</p></th>
+			<% end %>
+		</tr>
+	</thead>
+	<tbody>	
+		<tr>
+			<td width="15%"><%= f.label :title %></td>
+			<td><%= f.text_field :title, :class => "" %></td>
+		</tr>
+		<tr>
+			<td class="nb"><%= f.label :description %></td>
+			<td class="nb"><%= f.text_area :description, rows: 5, :class => "span10" %></td>		
+		</tr>
+		<tr>
+			<td class="nb"></td>
+			<td class="nb"><%= f.submit :class => "btn btn-primary" %></td>		
+		</tr>
+	</tbody>
 </table>
 <% end %>
