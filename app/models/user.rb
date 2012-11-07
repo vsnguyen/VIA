@@ -7,14 +7,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
   has_many :posts, :through => :post_category, :dependent => :destroy
-  has_many :comments #:through => post, :dependent => :destroy
-  has_and_belongs_to_many :roles
+  # has_many :comments #:through => post, :dependent => :destroy
+  has_many :roles, :through => :user_role
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  
-  def user_role?(role)
-    return !!self.roles.find_by_name(role.to_s.camelize)
-  end
+  attr_accessible :username, :email, :password, :password_confirmation, :remember_me
   
 end

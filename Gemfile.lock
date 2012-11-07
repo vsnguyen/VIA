@@ -124,6 +124,7 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
+    workflow (0.8.1)
 
 PLATFORMS
   ruby
@@ -140,3 +141,4 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   twitter-bootstrap-rails (~> 2.1.4)
   uglifier (>= 1.0.3)
+  workflow

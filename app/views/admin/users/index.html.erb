@@ -1,5 +1,16 @@
-<ul>
-<%- for user in @users %>
-	<li><%= user.id %></li>
-<% end %>
-</ul>
+<%= render "admin/application/admin-links" %>
+<table class="table table-striped" width="100%">
+	<thead>
+		<tr>
+			<td><p class="lead nm"><%= link_to "+", new_admin_user_path, :class => "btn btn-mini btn-primary" %> Users (<%= @users.count %>)</p></td>
+		</tr>
+	</thead>
+	<tbody>
+		<%- for user in @users %>
+		<tr>
+			<td width="80%"><%= user.id %> . <%= link_to user.username, user_path(user)  %></td>
+			<td width="5%"><div class="btn-group"></div></td>			
+		<tr>
+		<% end %>
+	</tbody>
+</table>

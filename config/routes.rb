@@ -22,7 +22,7 @@ VIA::Application.routes.draw do
   namespace :admin do
     resources :categories
     resources :comments
-    resources :posts
+    resources :posts, :except => [:show]
     resources :roles
     resources :users
   end  

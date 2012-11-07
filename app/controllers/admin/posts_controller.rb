@@ -1,12 +1,13 @@
 class Admin::PostsController < Admin::ApplicationController
-  before_filter :post_params_id, :only => [:show, :edit, :update, :destroy]
+  before_filter :post_params_id, :only => [:preview, :edit, :update, :destroy]
   #before_filter :attach_user, :only => [:create, :edit, :update]
 
   def index
     @posts = Post.all
   end
   
-  def show
+  def preview
+    @post = Post.new(params[:post]);
   end
   
   def new

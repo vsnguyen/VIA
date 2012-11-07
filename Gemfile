@@ -13,6 +13,9 @@ gem "twitter-bootstrap-rails", "~> 2.1.4"
 gem "haml", "~> 3.1.7"
 gem "active_link_to"
 
+# workflow : status
+gem "workflow"
+
 # Authenication and Authorization
 gem "devise", "~> 2.1.2" # authentication
 gem "cancan", "~> 1.6.8" # authorization
