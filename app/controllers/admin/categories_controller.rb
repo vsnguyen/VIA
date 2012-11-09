@@ -1,4 +1,4 @@
-class Admin::CategoriesController < Admin::ApplicationController
+class Admin::CategoriesController < Admin::ApplicationController  
   before_filter :cat_id, :only => [:show, :edit, :update, :destroy]
 
   def index
@@ -10,7 +10,7 @@ class Admin::CategoriesController < Admin::ApplicationController
   end
   
   def new
-    @category = Category.new
+    @category = Category.new(params[:category])
   end
   
   def create
