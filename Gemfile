@@ -17,6 +17,10 @@ gem "active_link_to"
 gem "devise", "~> 2.1.2" # authentication
 gem "cancan", "~> 1.6.8" # authorization
 
+# Testings
+gem "rspec-rails", "~> 2.11.4"
+gem "debugger"
+
 
 # Gems used only for assets and not required
 # in production environments by default.
